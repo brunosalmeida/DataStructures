@@ -58,6 +58,18 @@ namespace DataStructures.BinaryTree
                 }
             }
         }
+
+        public int GetTotalNodes()
+        {
+            return GetTotalNodes(_root);
+        }
+
+        private int GetTotalNodes(Node node)
+        {
+            if (node is null) return 0;
+
+            return 1 + GetTotalNodes(node.RightNode) + GetTotalNodes(node.LeftNode);
+        }
     }
 
     public class Node
